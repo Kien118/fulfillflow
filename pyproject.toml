@@ -29,6 +29,9 @@ dev = [
   "types-pyyaml>=6.0,<7",
 ]
 
+[project.scripts]
+fulfillflow = "fulfillflow.cli:app"
+
 [tool.hatch.build.targets.wheel]
 packages = ["src/fulfillflow"]
 
