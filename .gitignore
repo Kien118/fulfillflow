@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+
+# Environment and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# IDE and operating system
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Raw and generated data
+data/raw/*
+!data/raw/.gitkeep
+data/manifests/*.json
+!data/manifests/.gitkeep
+data/profiles/*.json
+!data/profiles/.gitkeep
+
+# Logs and temporary outputs
+logs/
+tmp/
+*.log
