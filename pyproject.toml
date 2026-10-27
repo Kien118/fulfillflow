@@ -1,0 +1,51 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "fulfillflow"
+version = "0.1.0"
+description = "Local-first e-commerce data engineering platform"
+requires-python = ">=3.12,<3.13"
+license = { text = "MIT" }
+authors = [{ name = "Kien118" }]
+dependencies = [
+  "polars>=1.0,<2",
+  "psycopg[binary]>=3.2,<4",
+  "pydantic>=2.10,<3",
+  "pydantic-settings>=2.6,<3",
+  "pyyaml>=6.0,<7",
+  "rich>=13.9,<15",
+  "typer>=0.15,<1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "mypy>=1.13,<2",
+  "pre-commit>=4,<5",
+  "pytest>=8,<10",
+  "pytest-cov>=6,<8",
+  "ruff>=0.8,<1",
+  "types-pyyaml>=6.0,<7",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/fulfillflow"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+  "integration: requires local infrastructure",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM", "RUF"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+packages = ["fulfillflow"]
